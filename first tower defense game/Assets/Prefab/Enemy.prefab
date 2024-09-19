@@ -98,3 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
+  speed: 1
+  startPoint: {fileID: 1944656462539515958, guid: 608f1b3336e9648458164b79ce1a5c57, type: 3}
