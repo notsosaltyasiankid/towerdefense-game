@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class Enemy : MonoBehaviour
     private int pointPos;
 
     private Vector3 direction;
+
+    public static event Action Hit;
+
 
 
     // Start is called before the first frame update
@@ -55,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         if (goingPoint == targets[10])
         {
+            Hit?.Invoke();
             Destroy(gameObject);
         }
     }
