@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Path : MonoBehaviour
 {
-    public GameObject Prefab;
+    [SerializeField] private GameObject Prefab;
 
     private float firstWave = 10;
 
-    [SerializeField] public List<Transform> pathList = new List<Transform>();
+    [SerializeField] private List<Transform> pathList = new List<Transform>();
+
+    public List<Transform> PathList
+    {
+        get
+        {
+            return pathList;
+        }
+    }
 
     private List<GameObject> Wave = new List<GameObject>();
-
-    // Start is called before the first frame update
     void Start()
     {
-        
         StartCoroutine(createWave());
     }
 
@@ -32,7 +36,7 @@ public class Path : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(Prefab);
             Wave.Add(newEnemy);
-            newEnemy.GetComponent<Enemy>().targets = pathList;
+            newEnemy.GetComponent<Enemy>().Targets = pathList;
             yield return new WaitForSeconds (1f);
 
         }

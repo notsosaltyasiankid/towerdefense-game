@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public List<Transform> targets = new List<Transform>();
-    public float speed = 1f;
+    private List<Transform> targets = new List<Transform>();
+
+    public List<Transform> Targets 
+    { 
+        set { 
+            targets = value;
+        }
+    }
+
+
+    [SerializeField] private float speed = 1f;
 
     private Vector3 differenceFactor;
 
-    public Transform startPoint;
+    [SerializeField] private Transform startPoint;
 
     private Transform goingPoint;
 
@@ -25,16 +34,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targets = GameObject.Find("PathManager").GetComponent<Path>().pathList;
-
-        
+        targets = GameObject.Find("PathManager").GetComponent<Path>().PathList;
 
         transform.position = startPoint.position;
 
         goingPoint = targets[pointPos];
     }
-
-    // Update is called once per frame
     void Update()
     {
         StartGoing();
