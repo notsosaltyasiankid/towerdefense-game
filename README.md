@@ -15,7 +15,7 @@ Dit is de [ROOT](https://github.com/notsosaltyasiankid/towerdefense-game/tree/ma
 
 ## Sprites
 
-![Textures Sprites](readmeVisuals/texturesSprites.gif](https://github.com/user-attachments/assets/5ec31316-9a08-4d54-8f27-02d445c17a9e))
+![Textures Sprites](https://github.com/user-attachments/assets/d8ddb765-50c9-4d8d-ab15-a0828102470d)
 
 ## Issues
 
