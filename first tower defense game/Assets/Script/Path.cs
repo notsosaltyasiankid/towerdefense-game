@@ -7,6 +7,12 @@ public class Path : MonoBehaviour
 
     private float firstWave = 10;
 
+    private float spawnerTimer = 1f;
+
+    private float waveTimer = 10f;
+
+    private bool spawn = true;
+
     [SerializeField] private List<Transform> pathList = new List<Transform>();
 
     public List<Transform> PathList
@@ -22,24 +28,32 @@ public class Path : MonoBehaviour
     {
         StartCoroutine(createWave());
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (spawnerTimer > 0.2f)
+        {
+            spawnerTimer -= 0.01f;
+        }
+        if (waveTimer > 0.2f)
+        {
+            waveTimer -= 0.005f;
+        }
 
     }
-
     IEnumerator createWave()
     {
-        yield return new WaitForSeconds(1f);
-        for (int i = 0; i < firstWave; i++)
+        while (spawn)
         {
-            GameObject newEnemy = Instantiate(Prefab);
-            Wave.Add(newEnemy);
-            newEnemy.GetComponent<Enemy>().Targets = pathList;
-            yield return new WaitForSeconds (1f);
-
+            for (int i = 0; i < firstWave; i++)
+            {
+                yield return new WaitForSeconds(spawnerTimer);
+                GameObject newEnemy = Instantiate(Prefab);
+                Wave.Add(newEnemy);
+                newEnemy.GetComponent<Enemy>().Targets = pathList;
+            }
+            yield return new WaitForSeconds(waveTimer);
         }
-      
+
+
     }
 }

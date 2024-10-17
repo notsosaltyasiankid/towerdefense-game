@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -13,9 +15,13 @@ public class Bullets : MonoBehaviour
 
     private GameObject enemy;
 
+    private Transform lastPos;
+
     [SerializeField] private int damage;
 
     [SerializeField] private float speed;
+
+    public static event Action GainScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +33,18 @@ public class Bullets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemy == null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, lastPos.position, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, lastPos.position) >= 0.3)
+            {
+                Destroy(gameObject);
+            }
+        }
         transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
+
+        lastPos = enemy.transform;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,7 +59,8 @@ public class Bullets : MonoBehaviour
         {
             shooting.enemy.Remove(other.gameObject);
             Destroy(other.gameObject);
-   
+            GainScore?.Invoke();
         }
+        
     }
 }
