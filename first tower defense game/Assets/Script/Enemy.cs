@@ -14,6 +14,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    [SerializeField] public float health;
+
+    
+
+
 
     [SerializeField] private float speed = 1f;
 
@@ -39,6 +44,8 @@ public class Enemy : MonoBehaviour
         transform.position = startPoint.position;
 
         goingPoint = targets[pointPos];
+
+        health = MathF.Max(health, 0);
     }
     void Update()
     {
@@ -67,5 +74,12 @@ public class Enemy : MonoBehaviour
             Hit?.Invoke();
             Destroy(gameObject);
         }
+    }
+
+   
+
+    public void EnemyHealth(int damage)
+    {
+        health -= damage;
     }
 }

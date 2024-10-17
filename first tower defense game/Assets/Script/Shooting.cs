@@ -10,13 +10,10 @@ public class Shooting : MonoBehaviour
     private bool InRadius = false;
     private float timeElapsed;
     [SerializeField]private float cooldown;
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
         timeElapsed += Time.deltaTime;
@@ -36,6 +33,13 @@ public class Shooting : MonoBehaviour
     }
     void shoot()
     {
-        Instantiate(prefab);
+        Instantiate(prefab, transform.position, Quaternion.identity, transform);
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("enemy"))
+        {
+            enemy.Remove(other.gameObject);
+        }
     }
 }
