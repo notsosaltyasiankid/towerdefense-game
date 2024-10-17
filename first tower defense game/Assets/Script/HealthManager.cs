@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Image healthBar;
-    public float healthBarAmount = 100f;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private float healthBarAmount = 100f;
     private bool takenDamage;
+
+    [SerializeField] private GameObject GameOverScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,10 @@ public class HealthManager : MonoBehaviour
     {
         healthBarAmount -= damage;
         healthBar.fillAmount = healthBarAmount / 100f;
+        if (healthBarAmount >= 0)
+        {
+            GameOverScreen.SetActive(true);
+        }
     }
 
 }

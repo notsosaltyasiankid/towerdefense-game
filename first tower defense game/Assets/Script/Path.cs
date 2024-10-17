@@ -14,7 +14,6 @@ public class Path : MonoBehaviour
     private bool spawn = true;
 
     [SerializeField] private List<Transform> pathList = new List<Transform>();
-
     public List<Transform> PathList
     {
         get
@@ -22,6 +21,9 @@ public class Path : MonoBehaviour
             return pathList;
         }
     }
+
+   
+
 
     private List<GameObject> Wave = new List<GameObject>();
     void Start()

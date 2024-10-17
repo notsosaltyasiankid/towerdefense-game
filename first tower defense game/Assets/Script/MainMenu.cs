@@ -6,12 +6,17 @@ public class MainMenu : MonoBehaviour
 {
     public void play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
     {
         Application.Quit();
         Debug.Log("quitted");
+    }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }

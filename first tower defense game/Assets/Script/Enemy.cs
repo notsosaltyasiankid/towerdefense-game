@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public float health;
 
-    
 
+    [SerializeField] private List<Quaternion> pathRotations = new List<Quaternion>();
 
 
     [SerializeField] private float speed = 1f;
@@ -63,7 +63,9 @@ public class Enemy : MonoBehaviour
         if(differenceFactor.magnitude < 0.1) 
         {
             goingPoint = targets[pointPos];
+            transform.rotation = pathRotations[pointPos];
             pointPos++;
+            
         }
     }
     

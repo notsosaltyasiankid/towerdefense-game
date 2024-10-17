@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Towers : MonoBehaviour
 {
@@ -20,10 +21,12 @@ public class Towers : MonoBehaviour
     [SerializeField] private GameObject tower2;
     [SerializeField] private GameObject tower3;
 
+    private ScoreSystem scrap;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        scrap = FindAnyObjectByType<ScoreSystem>();
     }
 
     // Update is called once per frame
@@ -33,20 +36,32 @@ public class Towers : MonoBehaviour
     }
     public void SpawnArcher()
     {
-        Instantiate(tower1, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
-        gameObject.SetActive(false);
-        zaButton.SetActive(false);
+        if(scrap.TotalScore >= 50)
+        {
+            scrap.addedScore(-50);
+            Instantiate(tower1, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            gameObject.SetActive(false);
+            zaButton.SetActive(false);
+        }
     }
     public  void SpawnCanon()
     {
-        Instantiate (tower2, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
-        gameObject.SetActive(false);
-        zaButton.SetActive(false);
+        if(scrap.TotalScore >= 200)
+        {
+            scrap.addedScore(-200);
+            Instantiate(tower2, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            gameObject.SetActive(false);
+            zaButton.SetActive(false);
+        }
     }
     public void SpawnGun()
     {
-        Instantiate (tower3, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
-        gameObject.SetActive(false);
-        zaButton.SetActive(false);
+        if(scrap.TotalScore >= 100)
+        {
+            scrap.addedScore(-100);
+            Instantiate(tower3, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            gameObject.SetActive(false);
+            zaButton.SetActive(false);
+        }
     }
 }
