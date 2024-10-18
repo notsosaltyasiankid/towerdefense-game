@@ -15,7 +15,7 @@ public class Bullets : MonoBehaviour
 
     private GameObject enemy;
 
-    private Transform lastPos;
+    private Vector3 lastPos;
 
     [SerializeField] private int damage;
 
@@ -25,6 +25,7 @@ public class Bullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       // lastPos.position = = new Vector3(100f,0f,0f)
         towerTransform = gameObject.transform.parent.transform;
         shooting = towerTransform.GetComponent<Shooting>();
         enemy = towerTransform.GetComponent<Shooting>().enemy[0].gameObject;
@@ -35,16 +36,20 @@ public class Bullets : MonoBehaviour
     {
         if (enemy == null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, lastPos.position, speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, lastPos.position) >= 0.3)
+            Debug.Log("??");
+            lastPos = new Vector3(14, 0, 0);
+            transform.position = Vector3.MoveTowards(transform.position, lastPos, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, lastPos) >= 0.3)
             {
                 Destroy(gameObject);
             }
         }
-        transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
+        else
+        { 
+            transform.position = Vector3.MoveTowards(transform.position, lastPos, speed * Time.deltaTime);
 
-        lastPos = enemy.transform;
-
+            lastPos = enemy.transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -23,13 +23,11 @@ public class Towers : MonoBehaviour
 
     private ScoreSystem scrap;
 
-    // Start is called before the first frame update
     void Start()
     {
         scrap = FindAnyObjectByType<ScoreSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

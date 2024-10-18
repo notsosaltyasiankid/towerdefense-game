@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targets = GameObject.Find("PathManager").GetComponent<Path>().PathList;
+        targets = GameObject.Find("PathManager").GetComponent<Wave>().PathList;
 
         transform.position = startPoint.position;
 

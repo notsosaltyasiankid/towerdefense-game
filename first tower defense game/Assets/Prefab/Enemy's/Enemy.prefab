@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309b8ca560c0dd74f839924009d2fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
+  health: 5
   pathRotations:
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
@@ -112,7 +112,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
-  speed: 3
+  speed: 0.8
   startPoint: {fileID: 1944656462539515958, guid: 608f1b3336e9648458164b79ce1a5c57, type: 3}
 --- !u!58 &5666129424283638198
 CircleCollider2D:
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767586085856685065}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

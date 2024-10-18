@@ -9,12 +9,13 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthBarAmount = 100f;
     private bool takenDamage;
-
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private TImer timer;
     // Start is called before the first frame update
     void Start()
     {
         Enemy.Hit += TookTheDamage;
+
     }
 
     // Update is called once per frame
@@ -34,12 +35,18 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        healthBarAmount -= damage;
-        healthBar.fillAmount = healthBarAmount / 100f;
-        if (healthBarAmount >= 0)
+        if (timer.timeRun)
         {
-            GameOverScreen.SetActive(true);
+            healthBarAmount -= damage;
+            healthBar.fillAmount = healthBarAmount / 100f;
+
+            if (healthBarAmount == 0)
+            {
+                timer.timeRun = false;
+                GameOverScreen.SetActive(true);
+            }
         }
     }
+        
 
 }
