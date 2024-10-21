@@ -17,9 +17,9 @@ public class Towers : MonoBehaviour
     {
         set { spawnPoint = value; }
     }
-    [SerializeField] private GameObject tower1;
-    [SerializeField] private GameObject tower2;
-    [SerializeField] private GameObject tower3;
+    [SerializeField] private GameObject archerTower;
+    [SerializeField] private GameObject BombTower;
+    [SerializeField] private GameObject gunTower;
 
     private ScoreSystem scrap;
 
@@ -37,7 +37,7 @@ public class Towers : MonoBehaviour
         if(scrap.TotalScore >= 50)
         {
             scrap.addedScore(-50);
-            Instantiate(tower1, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            Instantiate(archerTower, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
             gameObject.SetActive(false);
             zaButton.SetActive(false);
         }
@@ -47,7 +47,7 @@ public class Towers : MonoBehaviour
         if(scrap.TotalScore >= 200)
         {
             scrap.addedScore(-200);
-            Instantiate(tower2, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            Instantiate(BombTower, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
             gameObject.SetActive(false);
             zaButton.SetActive(false);
         }
@@ -57,7 +57,7 @@ public class Towers : MonoBehaviour
         if(scrap.TotalScore >= 100)
         {
             scrap.addedScore(-100);
-            Instantiate(tower3, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            Instantiate(gunTower, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
             gameObject.SetActive(false);
             zaButton.SetActive(false);
         }
