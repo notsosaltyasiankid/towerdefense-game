@@ -19,4 +19,17 @@ Dit is de [ROOT](https://github.com/notsosaltyasiankid/towerdefense-game/tree/ma
 
 ## Issues
 
-[Hier de link naar mijn issues](https://github.com/notsosaltyasiankid/towerdefense-game/issues)
+[Hier de link naar mijn issues](https://github.com/notsosaltyasiankid/towerdefense-game/issues) Ik had al wel meerdere bugs gehad en had het uiteindelijk hier in de issues gezet.
+
+## Builds
+Mijn Builds bestaan uit:
+
+Sprint 1: Ik had alleen de eerste map en de main menu gemaakt.
+
+Sprint 2: Ik maakte een path waarbij enemies het volgt. Ook maakt ik een begin aan de sprites van de torens.
+
+sprint 3: Ik maakte de buttons om de torens te gaan spawnen maar konnen nog niet schieten. Dan ging ik ook nog werken aan de sprites van de enemy.
+
+Tidle defense final build: Als laast ging ik een wave systeem maakte dat oneindig door gaat en maakte nog dat de torens gingen schieten.
+
+## Game design
