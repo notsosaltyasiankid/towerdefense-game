@@ -2695,9 +2695,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zaButton: {fileID: 0}
   spawnPoint: {fileID: 0}
-  tower1: {fileID: 1134135650686601582, guid: 0a9124cb0a2ae584881c8a7a27edff2c, type: 3}
-  tower2: {fileID: 5042168253472672142, guid: 1eee4393a710d7b46990e16add012a61, type: 3}
-  tower3: {fileID: 8593100137677499888, guid: fe64e6709a3451e499980d57877abd3a, type: 3}
+  archerTower: {fileID: 1134135650686601582, guid: 0a9124cb0a2ae584881c8a7a27edff2c, type: 3}
+  BombTower: {fileID: 5042168253472672142, guid: 1eee4393a710d7b46990e16add012a61, type: 3}
+  gunTower: {fileID: 8593100137677499888, guid: fe64e6709a3451e499980d57877abd3a, type: 3}
 --- !u!1 &1312414967
 GameObject:
   m_ObjectHideFlags: 0
