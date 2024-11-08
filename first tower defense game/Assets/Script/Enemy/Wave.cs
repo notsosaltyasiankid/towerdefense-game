@@ -5,7 +5,7 @@ public class Wave : MonoBehaviour
 {
     [SerializeField] private GameObject Prefab;
 
-    private float firstWave = 10;
+    private float wave = 10;
 
     private float spawnerTimer = 2f;
 
@@ -21,7 +21,7 @@ public class Wave : MonoBehaviour
             return pathList;
         }
     }
-    private List<GameObject> wave = new List<GameObject>();
+    private List<GameObject> waveList = new List<GameObject>();
     void Start()
     {
         StartCoroutine(createWave());
@@ -42,11 +42,11 @@ public class Wave : MonoBehaviour
     {
         while (spawn)
         {
-            for (int i = 0; i < firstWave; i++)
+            for (int i = 0; i < wave; i++)
             {
                 yield return new WaitForSeconds(spawnerTimer);
                 GameObject newEnemy = Instantiate(Prefab);
-                wave.Add(newEnemy);
+                waveList.Add(newEnemy);
                 newEnemy.GetComponent<Enemy>().Targets = pathList;
             }
             yield return new WaitForSeconds(waveTimer);
