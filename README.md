@@ -54,7 +54,7 @@ De player kan 10 schepen door laten totdat je uiteindelijk dood gaat. Als dat is
 
 De game heeft een scrap systeem waarbij ze elke keer een schip doden dan 10 scrap krijgen om dan uiteindelijk nieuwe torens te gaan kopen.
 
-## Product 9: SCRUM planning inschatting 
+## SCRUM planning inschatting 
 
 Ik gebruikte hier voor een trello om alles in te gaan plannen met sprints
 [Link naar trello](https://trello.com/b/b5ySsHrh/tower-defense-trello)
